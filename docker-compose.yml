@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  translations-api:
+    build:
+      context: .
+      dockerfile: scripts/Dockerfile
+    image: translations-api
+    container_name: translations-api
+    restart: unless-stopped
+    env_file: .env
+    hostname: ${SERVER_TRANSLATIONS_HOSTNAME}
+    ports:
+      - ${SERVER_TRANSLATIONS_PORT}:${SERVER_TRANSLATIONS_PORT}
